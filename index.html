@@ -18,12 +18,15 @@
 </head>
 </body>
 <h1>Steak and Pints</h1>
+<p>Steak and Pints is on <span class="when-on"></span></p>
 <h2>It is now:</h2>
 <div id="timer" class="timer"></div>
 <h2>Until Steak and Pints</h2>
 <script>
   // Set the date we're counting down to
   var countDownDate = new Date(Date.UTC(2020, 12, 09, 19, 00, 00)).getTime();
+  
+  document.querySelector('.when-on').innerHTML = countDownDate;
 
   // Update the count down every 1 second
   var x = setInterval(function() {
@@ -42,7 +45,7 @@
 
     // Display the result in the element with id="demo"
     document.getElementById("timer").innerHTML = days + "d " + hours + "h " +
-      minutes + "m " + seconds + "s " + "Date: + countDownDate;
+      minutes + "m " + seconds + "s ";
 
     // If the count down is finished, write some text
     if (distance < 0) {
