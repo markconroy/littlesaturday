@@ -17,16 +17,23 @@
   </style>
 </head>
 </body>
+
 <h1>Steak and Pints</h1>
-<p>Steak and Pints is on <span class="when-on"></span></p>
-<h2>It is now:</h2>
+
+<h2>Steak and Pints is on</h2>
+  <p>
+    <span class="when-on"></span>
+  </p>
+
+<h2>Which means it is now:</h2>
 <div id="timer" class="timer"></div>
 <h2>Until Steak and Pints</h2>
 <script>
   // Set the date we're counting down to
-  var countDownDate = new Date(Date.UTC(2020, 12, 09, 19, 00, 00)).getTime();
-  
-  document.querySelector('.when-on').innerHTML = countDownDate;
+  var countDownDate = new Date(Date.UTC(2020, 10, 07, 18, 00, 00));
+
+  var dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+  document.querySelector('.when-on').innerHTML = countDownDate.toLocaleDateString("en-UK", dateOptions);
 
   // Update the count down every 1 second
   var x = setInterval(function() {
@@ -35,7 +42,7 @@
     var now = new Date().getTime();
 
     // Find the distance between now an the count down date
-    var distance = countDownDate - now;
+    var distance = countDownDate.getTime() - now;
 
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
